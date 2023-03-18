@@ -1,0 +1,97 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// },
+
+	// "For Loop": {
+	// 	"prefix": ["mod, mod_construct"],
+	// 	"body": ["inline ll _mod(ll a, ll m) {\n\tll ans = a % m;\n\tif(ans < 0)\n\t\tans += m;\n\tassert(0 <= ans and ans < m);\n\treturn ans;\n}"],
+	// 	"description": "Constructor for extended mod."
+	// },
+	"modinv_prime": {
+		"prefix": ["init_modinv_prime"],
+		"body": [
+			"ll _modinv(ll a, ll p) {",
+			"\t// a^(p-2) == a^(-1) mod p",
+			"\tll ans = 1, pow = a % p, temp = p - 2;",
+			"\twhile(temp) {",
+			"\t\tif(temp % 2 == 1)",
+			"\t\t\tans = (ans * pow) % p;",
+			"\t\ttemp /= 2;",
+			"\t\tpow = (pow * pow) % p;",
+			"\t}",
+			"\treturn ans;",
+			"}"
+		],
+		"description": "Constructor for prime modular inverse."
+	},
+	"modinv_general": {
+		"prefix": "init_modinv_general",
+		"body": [
+			"inline ll _mod(ll a, ll m) {",
+			"\tll ans = a % m;",
+			"\tif(ans < 0)",
+			"\t\tans += m;",
+			"\tassert(0 <= ans and ans < m);",
+			"\treturn ans;",
+			"}",
+			"pii egcd(ll a, ll b) {",
+			"\tif(a == 0) {",
+			"\t\tassert(b == 1);",
+			"\t\treturn {0, 1};",
+			"\t}",
+			"\tpii u = egcd(b % a, a);",
+			"\tll y = u.first, x = u.second;",
+			"\treturn {x - (b/a) * y, y};",
+			"}",
+			"ll modinv(ll n, ll p) {",
+			"\t// modinv, which works for non-prime p",
+			"\treturn _mod(egcd(n, p).first, p);",
+			"}"
+		],
+		"description": "Constructor for general modular inverse."
+	},
+	"fact": {
+		"prefix": "init_factorial",
+		"body": [
+			"ll fact(int n, ll p) {",
+			"\t// Generate factorial, mod p.",
+			"\tll ans = 1;",
+			"\tfor(int i=1;i<=n;i++)",
+			"\t\tans = (ans * (ll)i) % p;",
+			"\treturn ans;",
+			"}"
+		],
+		"description": "Constructor for factorial function."
+	},
+	"power": {
+		"prefix": "init_power",
+		"body": [
+			"ll pow(ll a, ll n, ll p) {",
+			"\t// Generate a^n mod p.",
+			"\tll ans = 1, pow = a;",
+			"\twhile(n) {",
+			"\t\tif(n % 2 == 1)",
+			"\t\t\tans = (ans * pow) % p;",
+			"\t\tn /= 2;",
+			"\t\tpow = (pow * pow) % p;",
+			"\t}",
+			"\treturn ans;",
+			"}"
+		],
+		"description": "Constructor for repeated square powering."
+	}
+}
