@@ -1,6 +1,6 @@
 Hi, I’m James Bang (@jamesbang1233). I'm currently a Mathematics student studying at the University of Cambridge.
 
-This is just a basic account to store stuff I've written over time.
+This is just a basic account to store stuff I've written over time. Most of my repos are private, so there isn't much public items for view.
 
 <!---
 jamesbang1233/jamesbang1233 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
